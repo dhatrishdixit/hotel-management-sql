@@ -123,7 +123,8 @@ WHERE DATEDIFF(checkoutdate,checkindate) > (
  SELECT r.roomId,r.roomType,g.name
  FROM Rooms AS r 
  JOIN Bookings AS b ON b.roomId = r.roomId 
- JOIN Guests AS g ON b.guestId = g.guestId ;
+ JOIN Guests AS g ON b.guestId = g.guestId 
+ WHERE r.isAvailable = "No";
  
  
  -- 20 find the roomid and roomtype of rooms that have never been booked \
