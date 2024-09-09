@@ -133,7 +133,7 @@ WHERE DATEDIFF(checkoutdate,checkindate) > (
 -- 21 find the guestId and name of guests who stayed in the last 6 months 
 SELECT g.guestid as GuestId , g.name as Name , COUNT(*) as "Number of different visits in the last 6 months"
 FROM bookings as b
-LEFT JOIN guests as g ON g.guestid = b.guestid
+JOIN guests as g ON g.guestid = b.guestid
 WHERE  b.checkoutdate >= CURRENT_DATE() - INTERVAL 6 MONTH OR b.checkindate >= CURRENT_DATE() - INTERVAL 6 MONTH
 GROUP BY g.guestid , g.name 
 ORDER BY COUNT(*) DESC ;
